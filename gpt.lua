@@ -72,9 +72,11 @@ local function createUI()
     button.Parent = frame
 
     local blankScreen = Instance.new("Frame")
-    blankScreen.Size = UDim2.new(1,0,1,0)
-    blankScreen.Position = UDim2.new(0,0,0,0)
+    blankScreen.Size = UDim2.new(1,0,1,0)         -- ancho y alto completos
+    blankScreen.Position = UDim2.new(0,0,0,0)     -- top-left
+    blankScreen.AnchorPoint = Vector2.new(0,0)    -- anclar al borde
     blankScreen.BackgroundColor3 = Color3.new(0,0,0)
+    blankScreen.BackgroundTransparency = 0         -- negro sólido
     blankScreen.Visible = false
     blankScreen.Parent = screenGui
 
