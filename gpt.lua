@@ -72,11 +72,9 @@ local function createUI()
     button.Parent = frame
 
     local blankScreen = Instance.new("Frame")
-    blankScreen.Size = UDim2.new(1,0,1,0)         -- ancho y alto completos
-    blankScreen.Position = UDim2.new(0,0,0,0)     -- top-left
-    blankScreen.AnchorPoint = Vector2.new(0,0)    -- anclar al borde
+    blankScreen.Size = UDim2.new(1,0,1,0)
+    blankScreen.Position = UDim2.new(0,0,0,0)
     blankScreen.BackgroundColor3 = Color3.new(0,0,0)
-    blankScreen.BackgroundTransparency = 0         -- negro sólido
     blankScreen.Visible = false
     blankScreen.Parent = screenGui
 
@@ -85,6 +83,14 @@ local function createUI()
         button.Text = blankScreen.Visible and "Blank Screen: ON" or "Blank Screen: OFF"
     end)
 end
+
+-- Ocultar TopBar (CoreGui)
+pcall(function()
+    local StarterGui = game:GetService("StarterGui")
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+end)
 
 -- Ejecutar optimización y crear UI
 optimizeGame()
